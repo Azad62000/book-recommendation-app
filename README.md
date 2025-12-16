@@ -1,4 +1,4 @@
-# Hybrid Book Recommender System
+# Hybrid Book Recommender System App
 
 A simple hybrid book recommendation app with a FastAPI backend and a static HTML/CSS/JS frontend. It supports viewing popular books, searching, and generating recommendations by book title. Basic auth (signup/login) is included.
 
