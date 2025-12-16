@@ -8,7 +8,6 @@ const slider = document.getElementById("book-slider");
 let popularBooks = [];
 const popularGrid = document.getElementById("popular-grid");
 const viewAllBtn = document.getElementById("viewAllBtn");
-const recommendBox = document.getElementById("recommend-box");
 
 async function loadPopular() {
   try {
@@ -101,10 +100,8 @@ async function addRecommendation(title) {
     const res = await fetch(`${API_BASE}/recommend/by-title?title=${encodeURIComponent(title)}&limit=8`);
     const books = await res.json();
     if (!books || books.length === 0) {
-      if (recommendBox) recommendBox.textContent = "";
       return;
     }
-    if (recommendBox) recommendBox.textContent = "";
     books.forEach(book => {
       const div = document.createElement("div");
       div.classList.add("book-card");
@@ -128,7 +125,7 @@ if (recommendBtn) {
       if (arr && arr.length > 0) {
         await addRecommendation(arr[0].title);
       } else {
-        if (recommendBox) recommendBox.textContent = "";
+        // no-op when nothing found
       }
     } catch (e) {}
   };
