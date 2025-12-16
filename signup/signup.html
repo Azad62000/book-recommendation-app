@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - BookApp</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <nav>
+  <div class="logo">📚 BookApp</div>
+  <div class="links">
+    <a href="../home/home.html">Home</a>
+    <a href="../notes/notes.html">Notes</a>
+    <a href="../login/login.html">Login</a>
+    <a href="../profile/profile.html" class="profile-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+    </a>
+  </div>
+</nav>
+  <div class="signup-container">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+      <input type="number" id="age" placeholder="Age" required min="10">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password (min 8 chars)" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <p id="error-msg" class="error"></p>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p class="redirect-text">
+      Already registered? <a href="../login/login.html">Login here</a>
+    </p>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>

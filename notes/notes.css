@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.05); /* light black translucent */
+  margin: 0;
+}
+
+/* Navbar */
+nav {
+  background: rgba(20, 20, 20, 0.9); /* dark grey-black translucent */
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .logo {
+  color: rgb(239, 218, 196);    /* logo text */
+  font-size: 30px;   
+  font-weight: bold;
+}
+
+nav a {
+  color: #f1f1f1;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* Profile icon small size */
+.profile-icon img {
+  width: 22px;   
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+textarea {
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+  height: 800px;
+  padding: 10px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#savedNotes {
+  margin: 20px;
+  padding: 10px;
+}

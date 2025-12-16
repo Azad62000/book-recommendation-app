@@ -1,0 +1,11 @@
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+node_modules
+*.sqlite
+*.db
+*.log
+book_recomander_system.ipynb

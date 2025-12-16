@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">📚 BookApp</div>
+    <div class="links">
+      <a href="../home/home.html">Home</a>
+      <a href="../signup/signup.html">Signup</a>
+      <a href="../profile/profile.html" class="profile-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="login-container">
+      <h2>🔐 Login</h2>
+      <form onsubmit="handleLogin(event)">
+        <input type="text" id="login-username" placeholder="Email / User Id" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

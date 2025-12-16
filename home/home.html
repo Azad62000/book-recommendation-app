@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Book App</title>
+  <link rel="stylesheet" href="/home/home.css">
+</head>
+<body>
+<nav>
+  <div class="logo">📚 BookApp</div>
+  <div class="links">
+    <a href="../home/home.html">Home</a>
+    <a href="../notes/notes.html">Notes</a>
+    <a href="../login/login.html">Login</a>
+    <a href="../signup/signup.html">Signup</a>
+    <a href="../profile/profile.html" class="profile-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+    </a>
+  </div>
+</nav>
+
+<main>
+  <!-- Popular Books with View All -->
+  <div class="section-header">
+    <h2 class="section-title" id="popularTitle">Top Popular Books</h2>
+    <a href="../popular/popular.html" class="view-all">View All</a>
+  </div>
+  
+  <div class="slider-container">
+    <button class="slide-btn" id="prevBtn">❮</button>
+    <div class="book-slider" id="book-slider"></div>
+    <button class="slide-btn" id="nextBtn">❯</button>
+  </div>
+
+  <!-- Search -->
+  <div class="search-container">
+    <input type="text" id="searchBox" placeholder="Search for a book...">
+    <button id="recommendBtn" class="recommend-btn">Recommend</button>
+  </div>
+  <div id="recommend-box" class="recommend-box"></div>
+  <div class="book-grid" id="search-results"></div>
+
+  <!-- Recommended -->
+  <h3 class="section-title" id="recommendTitle">Recommended Books</h3>
+  <div class="book-grid" id="recommended-books"></div>
+</main>
+
+  <script src="/home/home.js"></script>
+</body>
+</html>

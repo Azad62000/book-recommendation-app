@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">📚 BookApp</div>
+    <div class="links">
+      <a href="../home/home.html">Home</a>
+      <a href="../notes/notes.html">Notes</a>
+      <a href="../login/login.html" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Profile</h2>
+    
+    <!-- Profile Picture Section -->
+    <div class="profile-pic-container">
+      <img id="profile-pic" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
+      <br>
+      <button onclick="editProfilePic()">✏️ Edit Profile Pic</button>
+    </div>
+
+    <!-- Profile Info -->
+    <div id="profile-info"></div>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>
