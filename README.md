@@ -114,3 +114,8 @@ Body: { email, password }
 - The backend’s root path `/` returns 404 JSON by design; use the endpoints above.
 - Nginx is configured to serve the Home page at `/` and to resolve assets with root‑relative paths.
 - `users.db` is created automatically on first signup.
+
+  
+## 🚀 Deployment
+This app is deployed on Render:  
+🔗 **[Live App](https://book-recommendation-app-2-a76d.onrender.com)**
