@@ -2,6 +2,8 @@ import os
 import sqlite3
 from typing import Optional
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
 from passlib.context import CryptContext
@@ -39,6 +41,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+app.mount("/home", StaticFiles(directory=os.path.join(BASE_DIR, "home"), html=True), name="home")
+app.mount("/popular", StaticFiles(directory=os.path.join(BASE_DIR, "popular"), html=True), name="popular")
+app.mount("/login", StaticFiles(directory=os.path.join(BASE_DIR, "login"), html=True), name="login")
+app.mount("/signup", StaticFiles(directory=os.path.join(BASE_DIR, "signup"), html=True), name="signup")
+app.mount("/profile", StaticFiles(directory=os.path.join(BASE_DIR, "profile"), html=True), name="profile")
+app.mount("/notes", StaticFiles(directory=os.path.join(BASE_DIR, "notes"), html=True), name="notes")
+
 class SignupBody(BaseModel):
     first_name: str
     last_name: str
@@ -53,6 +63,10 @@ class LoginBody(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/")
+def root():
+    return RedirectResponse(url="/home/home.html")
 
 @app.get("/books/popular")
 def books_popular(limit: int = 20):

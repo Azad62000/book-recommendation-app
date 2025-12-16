@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:8000";
+const API_BASE = (window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1")
+  ? `${window.location.protocol}//${window.location.host}`
+  : "http://localhost:8000";
 const popularTitle = document.getElementById("popularTitle");
 const recommendTitle = document.getElementById("recommendTitle");
 let currentIndex = 0;
