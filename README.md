@@ -37,7 +37,7 @@ Additionally:
 ------------------------------------------------------------
 
 ### 4. Key Features
-- **Hybrid Recommendation Engine**: Seamlessly blends collaborative and latent factor signals.
+- **Hybrid Scoring Engine**: Seamlessly blends collaborative and latent factor signals.
 - **Advanced Model Evaluation**: Integrated suite for **Precision@K** and **Recall@K** metrics.
 - **Real-time Explainability**: Contextual labels explaining "why" a book was recommended.
 - **Production-Grade API**: FastAPI backend with structured logging, caching (LRU), and error middleware.
