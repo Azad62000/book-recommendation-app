@@ -1,0 +1,4 @@
+2026-03-27 01:41:05,845 - backend.app - INFO - Incoming request: GET http://localhost:8000/health
+2026-03-27 01:41:05,847 - backend.app - INFO - Completed request: GET http://localhost:8000/health - Status: 200
+2026-03-27 01:41:10,932 - backend.app - INFO - Incoming request: GET http://localhost:8000/admin/evaluate?k=5
+2026-03-27 01:41:12,810 - backend.app - INFO - Completed request: GET http://localhost:8000/admin/evaluate?k=5 - Status: 200
