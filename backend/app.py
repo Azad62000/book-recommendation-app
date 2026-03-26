@@ -1,25 +1,13 @@
 import os
 import sqlite3
-import logging
 from typing import Optional
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
 from passlib.context import CryptContext
-from . import recommender, evaluation
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("app.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+from . import recommender
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'users.db')
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__truncate_error=False)
@@ -52,17 +40,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    logger.info(f"Incoming request: {request.method} {request.url}")
-    try:
-        response = await call_next(request)
-        logger.info(f"Completed request: {request.method} {request.url} - Status: {response.status_code}")
-        return response
-    except Exception as e:
-        logger.error(f"Error processing request: {request.method} {request.url} - {str(e)}", exc_info=True)
-        raise e
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 app.mount("/home", StaticFiles(directory=os.path.join(BASE_DIR, "home"), html=True), name="home")
@@ -102,31 +79,6 @@ def books_search(q: str, limit: int = 20):
 @app.get("/recommend/by-title")
 def recommend_by_title(title: str, limit: int = 10):
     return recommender.recommend_by_title(title, limit)
-
-@app.get("/admin/evaluate")
-def evaluate_recommender(k: int = 10):
-    """
-    Endpoint to trigger evaluation and metrics calculation.
-    """
-    precision, recall = evaluation.evaluate_recommender(k)
-    return {
-        "precision": precision,
-        "recall": recall,
-        "k": k,
-        "status": "success"
-    }
-
-@app.get("/admin/optimize")
-def optimize_recommender(n_trials: int = 5):
-    """
-    Endpoint to trigger Optuna optimization.
-    """
-    best_params = evaluation.run_optimization()
-    return {
-        "best_params": best_params,
-        "n_trials": n_trials,
-        "status": "success"
-    }
 
 @app.post("/auth/signup")
 def signup(body: SignupBody):
